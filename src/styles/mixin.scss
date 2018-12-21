@@ -1,0 +1,10 @@
+@mixin serial-css($color) {
+  .app-center-block-inner {
+    &:hover {
+      border-color: $color;
+    }
+    .inner-icon {
+      background-color: $color;
+    }
+  }
+}

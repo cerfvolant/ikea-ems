@@ -11,20 +11,20 @@
         <div class="form">
           <div class="form-title">{{ item.formTitle }}</div>
           <div class="form-content">
-            <!--<el-table :data="tableData">-->
-              <!--<el-table-column prop="attackTime" label="触发时间" align="center"></el-table-column>-->
-              <!--<el-table-column prop="bureau" label="局点" align="center"></el-table-column>-->
-              <!--<el-table-column prop="site" label="站点" align="center"></el-table-column>-->
-              <!--<el-table-column prop="alarmContent" label="报警内容" align="center"></el-table-column>-->
-              <!--<el-table-column prop="alarmType" label="报警类型" align="center"></el-table-column>-->
-              <!--<el-table-column prop="alarmLevel" label="报警级别" align="center"></el-table-column>-->
-              <!--<el-table-column label="查看" align="center">-->
-                <!--<template slot-scope="scope">-->
-                  <!--<el-button @click="handleClick2(scope.row)" type="text" size="small">操作</el-button>-->
-                  <!--<el-button type="text">详情</el-button>-->
-                <!--</template>-->
-              <!--</el-table-column>-->
-            <!--</el-table>-->
+            <el-table :data="tableData">
+              <el-table-column prop="attackTime" label="触发时间" align="center"></el-table-column>
+              <el-table-column prop="bureau" label="局点" align="center"></el-table-column>
+              <el-table-column prop="site" label="站点" align="center"></el-table-column>
+              <el-table-column prop="alarmContent" label="报警内容" align="center"></el-table-column>
+              <el-table-column prop="alarmType" label="报警类型" align="center"></el-table-column>
+              <el-table-column prop="alarmLevel" label="报警级别" align="center"></el-table-column>
+              <el-table-column label="查看" align="center">
+                <template slot-scope="scope">
+                  <el-button @click="handleClick2(scope.row)" type="text" size="small">操作</el-button>
+                  <el-button type="text">详情</el-button>
+                </template>
+              </el-table-column>
+            </el-table>
           </div>
         </div>
       </el-tab-pane>

@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Layout from '../views/layout/Layout.vue'
+import NavWrap from '../views/navWrap/NavWrap.vue'
 import SubWrap from '../views/subWrap/SubWrap.vue'
+import Layout from '../views/layout/Layout.vue'
 
 Vue.use(Router)
 
@@ -11,7 +12,7 @@ export const constantRouterMap = [
   { path: '/404', component: () => import('@/views/404'), hidden: true },
   {
     path: '/',
-    component: Layout,
+    component: NavWrap,
     hidden: true,
     redirect: '/home',
     children: [
@@ -31,7 +32,7 @@ export const constantRouterMap = [
   },
   {
     path: '/wasteWater',
-    component: Layout,
+    component: NavWrap,
     name: 'WasteWater',
     hidden: true,
     redirect: '/wasteWater',
@@ -40,12 +41,12 @@ export const constantRouterMap = [
         path: '/',
         component: SubWrap,
         hidden: true,
-        redirect: '/wasteWater/siteMap',
+        redirect: '/wasteWater/layout',
         children: [
           {
-            path: 'siteMap',
+            path: 'layout',
             name: 'SiteMap',
-            component: () => import('@/views/siteMap/index'),
+            component: Layout,
             hidden: true
           },
           {

@@ -1,16 +1,25 @@
 <template>
   <div class="login-container">
     <div class="login-form">
-      <el-row>
-        <el-col :span="14" class="headline">宜家统一环境管理平台</el-col>
-        <el-col :span="10" class="loginForm-bg">
+      <el-row class="login-wrap">
+        <el-col :span="15" class="headline">宜家统一环境管理平台</el-col>
+        <el-col :span="9" class="loginForm-bg">
           <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="" auto-complete="on" label-position="left">
             <h3 class="title">用户登录</h3>
             <el-form-item label="用户名" label-position="top" prop="username">
               <span class="svg-container">
                 <svg-icon icon-class="user" />
               </span>
-              <el-input v-model="loginForm.username" name="username" type="text" auto-complete="on" placeholder="输入用户名" />
+              <!--<el-popover ref="pykbuser" placement="bottom" width="730" trigger="click">-->
+                <!--<m-py-keyboard-->
+                  <!--v-model="loginForm.username"-->
+                  <!--:height="240"-->
+                  <!--:candidate-len="8"-->
+                  <!--lang="en"-->
+                  <!--sync-->
+                  <!--@enter="$refs.pykbuser.doClose()"/>-->
+              <!--</el-popover>-->
+              <el-input v-popover:pykbuser v-model="loginForm.username" name="username" type="text" auto-complete="on" placeholder="输入用户名" />
             </el-form-item>
             <el-form-item label="密码" prop="password">
               <span class="svg-container">
@@ -29,7 +38,7 @@
               </span>
             </el-form-item>
             <el-form-item>
-              <el-button :loading="loading" type="primary" style="width:100%;" @click.native.prevent="handleLogin">
+              <el-button :disabled="!loginForm.username || !loginForm.password" :loading="loading" type="primary" style="width:100%;" @click.native.prevent="handleLogin">
                 登录
               </el-button>
             </el-form-item>
@@ -46,9 +55,11 @@
 
 <script>
 import { isvalidUsername } from '@/utils/validate'
+import MPyKeyboard from '@/components/Keyboard/py-keyboard'
 
 export default {
   name: 'Login',
+  components: { MPyKeyboard },
   data () {
     const validateUsername = (rule, value, callback) => {
       if (!isvalidUsername(value)) {
@@ -177,7 +188,7 @@ export default {
 
 </style>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
+<style rel="stylesheet/scss" lang="scss">
   $bg:#1b1b1b;
   $dark_gray:#999999;
   $light_gray:#666666;
@@ -199,18 +210,22 @@ export default {
       max-width: 100%;
       padding: 35px 35px 15px 35px;
       margin: 120px auto;
-      .headline {
-        /*font-size: .6rem;*/
-        font-size: 42px;
-        font-weight: 600;
-        text-shadow: 5px 0 2px #000066;
-        margin-top: 3rem;
-        color: #ffffff;
-      }
-      .loginForm-bg {
-        background-color: rgb(255, 255, 255);
-        /*min-height:60vh;*/
-        padding: 10px 0 37px;
+      .login-wrap {
+        width: 90%;
+        margin: 0 auto;
+        .headline {
+          /*font-size: .6rem;*/
+          font-size: 42px;
+          font-weight: 600;
+          text-shadow: 5px 0 2px #000066;
+          margin-top: 3rem;
+          color: #ffffff;
+        }
+        .loginForm-bg {
+          background-color: rgb(255, 255, 255);
+          /*min-height:60vh;*/
+          padding: 10px 0 37px;
+        }
       }
     }
     .tips {
@@ -248,6 +263,13 @@ export default {
       &:hover {
         color: #08B3E9;
       }
+    }
+  }
+  .el-popover.el-popper {
+    background-color: red;
+    top: 632px !important;
+    .popper__arrow, .popper__arrow::after {
+      border-style: none;
     }
   }
 </style>

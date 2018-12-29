@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'ApplyCenter',
+  name: 'apply-center',
   data () {
     return {
       arr: [

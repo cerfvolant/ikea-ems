@@ -190,7 +190,7 @@ export default {
     }
   }
 }
-.content {
-  margin-top: 75px;
-}
+/*.content {*/
+  /*margin-top: 75px;*/
+/*}*/
 </style>

@@ -4,7 +4,7 @@
       <span class="nav-left1-text">
         宜家统一环境监控平台
         <!--<span> — {{ this.$route.query.userId }}</span>-->
-        <span> — {{ navCurrName }}</span>
+        <span> — {{ navData }}</span>
       </span>
     </div>
     <div class="nav-right1">
@@ -19,7 +19,8 @@ export default {
   name: 'NavWrap1',
   data () {
     return {
-      navCurrName: ''
+      navData: ''
+      // navCurrName: ''
     }
   }
 }

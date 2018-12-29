@@ -15,6 +15,7 @@ import ElementUI from 'element-ui'
 import '../node_modules/element-ui/lib/theme-chalk/index.css'
 import echarts from 'echarts'
 import 'echarts/extension/bmap/bmap'
+import 'element-ui/packages/popover'
 
 // import common from './views/subWrap/components/index'
 // Vue.use(common.NavWrap2)
